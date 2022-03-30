@@ -28,5 +28,17 @@
     "halfpriceY1": "777.0",
     "priceY2": "642.0",
     "halfpriceY2": "12.0"
+  },
+  {
+    "number": 2,
+    "route": "AWED",
+    "destZ": "sdaw",
+    "destY": "dawds",
+    "maxPZ": "1",
+    "priceZ1": "721.0",
+    "halfpriceZ1": "123.0",
+    "maxPY": "1",
+    "priceY1": "999.0",
+    "halfpriceY1": "777.0"
   }
 ]
