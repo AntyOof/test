@@ -1,0 +1,14 @@
+[
+  {
+    "number": 0,
+    "route": "ABC",
+    "destZ": "ZZZ",
+    "destY": "YYY",
+    "maxPZ": "1",
+    "priceZ1": "721.0",
+    "halfpriceZ1": "123.0",
+    "maxPY": "1",
+    "priceY1": "999.0",
+    "halfpriceY1": "777.0"
+  }
+]
