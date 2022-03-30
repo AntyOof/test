@@ -10,5 +10,23 @@
     "maxPY": "1",
     "priceY1": "999.0",
     "halfpriceY1": "777.0"
+  },
+  {
+    "number": 1,
+    "route": "123",
+    "destZ": "Hi",
+    "destY": "Bye",
+    "maxPZ": "3",
+    "priceZ1": "721.0",
+    "halfpriceZ1": "123.0",
+    "priceZ2": "453.0",
+    "halfpriceZ2": "97.0",
+    "priceZ3": "4532.0",
+    "halfpriceZ3": "45.0",
+    "maxPY": "2",
+    "priceY1": "999.0",
+    "halfpriceY1": "777.0",
+    "priceY1": "642.0",
+    "halfpriceY1": "12.0"
   }
 ]
