@@ -1,0 +1,50 @@
+[
+  {
+    "route": "ABC",
+    "direction": 0,
+    "NextStop": 1,
+    "Chi": "歡迎乘搭ABC巴士",
+    "ChiTime": 5,
+    "Eng": "WELCOME ONBOARD",
+    "EngTime": 5,
+    "SoundId": "rbxassetid://",
+    "TimePosition": 0,
+    "Notification": 0
+  },
+  {
+    "route": "ABC",
+    "direction": 0,
+    "NextStop": 2,
+    "Chi": "歡迎乘搭DEF巴士",
+    "ChiTime": 5,
+    "Eng": "WELCOME OFFBOARD",
+    "EngTime": 5,
+    "SoundId": "rbxassetid://",
+    "TimePosition": 0,
+    "Notification": 0
+  },
+  {
+    "route": "ABC",
+    "direction": 1,
+    "NextStop": 1,
+    "Chi": "歡迎乘搭ABC巴士",
+    "ChiTime": 5,
+    "Eng": "WELCOME ONBOARD",
+    "EngTime": 5,
+    "SoundId": "rbxassetid://",
+    "TimePosition": 0,
+    "Notification": 0
+  },
+  {
+    "route": "ABC",
+    "direction": 1,
+    "NextStop": 2,
+    "Chi": "歡迎乘搭DEF巴士",
+    "ChiTime": 5,
+    "Eng": "WELCOME OFFBOARD",
+    "EngTime": 5,
+    "SoundId": "rbxassetid://",
+    "TimePosition": 0,
+    "Notification": 0
+  }
+]
