@@ -1,0 +1,420 @@
+local function a()
+	local HttpService = game:GetService("HttpService")
+
+	local URL_ASTROS = "https://antyoof.github.io/Adeparture.json"
+
+	-- Make the request to our endpoint URL	
+	local response = HttpService:GetAsync(URL_ASTROS)
+
+	-- Parse the JSON response
+	local data = HttpService:JSONDecode(response)
+
+	-- Information in the data table is dependent on the response JSON
+	script.Parent.Parent.A.Value = true
+	for i,v in pairs(script.Parent:GetChildren()) do
+		for i, a in pairs(data) do
+			if a.route == v.Name:split("Z")[1] then
+				if a.direction == 0 then
+					if os.date("!*t",  (os.time() + (8 * 3600))).wday == 1 or os.date("!*t",  (os.time() + (8 * 3600))).wday == 7 then
+						if a.day == 1 then
+							local dd = {}
+							for i, b in pairs(a.time) do
+								if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if v.Value.Value ~= "" then
+								if (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if table.unpack(dd) ~= nil then
+								for i, b in pairs(a.time) do
+									if v.new.Text ~= "" then
+										if (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) <= 0 then
+											v.Value.Value = v.time.Text
+											v.new.Text = ""
+											for i, g in pairs(a.time) do
+												if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+													if math.min(table.unpack(dd)) <= 60 then
+														v.time.Text = g
+													else
+														v.time.Text = "N/A"
+													end
+												end		
+											end
+										elseif (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+										else
+											if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									else
+										if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+											if b == v.Value.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if g == v.Value1.Value then
+																for i, h in pairs(a.time) do
+																	if (h:split(":")[1]*60 + h:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 2] then
+																		if math.min(table.unpack(dd)) <= 60 then
+																			v.time.Text = h
+																		else
+																			v.time.Text = "N/A"
+																		end
+																	end
+																end
+															else
+																if math.min(table.unpack(dd)) <= 60 then
+																	v.time.Text = g
+																else
+																	v.time.Text = "N/A"
+																end
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											elseif b == v.Value1.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if math.min(table.unpack(dd)) <= 60 then
+																v.time.Text = g
+															else
+																v.time.Text = "N/A"
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											else
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									end
+								end
+							else
+								v.time.Text = "N/A"
+								v.new.Text = ""
+							end
+						end
+					else
+						if a.day == 0 then
+							local dd = {}
+							for i, b in pairs(a.time) do
+								if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if v.Value.Value ~= "" then
+								if (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if table.unpack(dd) ~= nil then
+								for i, b in pairs(a.time) do
+									if v.new.Text ~= "" then
+										if (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) <= 0 then
+											v.Value.Value = v.time.Text
+											v.new.Text = ""
+											for i, g in pairs(a.time) do
+												if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+													if math.min(table.unpack(dd)) <= 60 then
+														v.time.Text = g
+													else
+														v.time.Text = "N/A"
+													end
+												end		
+											end
+										elseif (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+										else
+											if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									else
+										if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+											if b == v.Value.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if g == v.Value1.Value then
+																for i, h in pairs(a.time) do
+																	if (h:split(":")[1]*60 + h:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 2] then
+																		if math.min(table.unpack(dd)) <= 60 then
+																			v.time.Text = h
+																		else
+																			v.time.Text = "N/A"
+																		end
+																	end
+																end
+															else
+																if math.min(table.unpack(dd)) <= 60 then
+																	v.time.Text = g
+																else
+																	v.time.Text = "N/A"
+																end
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											elseif b == v.Value1.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if math.min(table.unpack(dd)) <= 60 then
+																v.time.Text = g
+															else
+																v.time.Text = "N/A"
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											else
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									end
+								end
+							else
+								v.time.Text = "N/A"
+								v.new.Text = ""
+							end
+						end
+					end
+				end
+			elseif a.route == v.Name:split("Y")[1] then
+				if a.direction == 1 then
+					if os.date("!*t",  (os.time() + (8 * 3600))).wday == 1 or os.date("!*t",  (os.time() + (8 * 3600))).wday == 7 then
+						if a.day == 1 then
+							local dd = {}
+							for i, b in pairs(a.time) do
+								if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if v.Value.Value ~= "" then
+								if (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if table.unpack(dd) ~= nil then
+								for i, b in pairs(a.time) do
+									if v.new.Text ~= "" then
+										if (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) <= 0 then
+											v.Value.Value = v.time.Text
+											v.new.Text = ""
+											for i, g in pairs(a.time) do
+												if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+													if math.min(table.unpack(dd)) <= 60 then
+														v.time.Text = g
+													else
+														v.time.Text = "N/A"
+													end
+												end		
+											end
+										elseif (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+										else
+											if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									else
+										if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+											if b == v.Value.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if g == v.Value1.Value then
+																for i, h in pairs(a.time) do
+																	if (h:split(":")[1]*60 + h:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 2] then
+																		if math.min(table.unpack(dd)) <= 60 then
+																			v.time.Text = h
+																		else
+																			v.time.Text = "N/A"
+																		end
+																	end
+																end
+															else
+																if math.min(table.unpack(dd)) <= 60 then
+																	v.time.Text = g
+																else
+																	v.time.Text = "N/A"
+																end
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											elseif b == v.Value1.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if math.min(table.unpack(dd)) <= 60 then
+																v.time.Text = g
+															else
+																v.time.Text = "N/A"
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											else
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									end
+								end
+							else
+								v.time.Text = "N/A"
+								v.new.Text = ""
+							end
+						end
+					else
+						if a.day == 0 then
+							local dd = {}
+							for i, b in pairs(a.time) do
+								if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if v.Value.Value ~= "" then
+								if (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+									table.insert(dd, (v.Value.Value:split(":")[1]*60 + v.Value.Value:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()))
+								end
+							end
+							if table.unpack(dd) ~= nil then
+								for i, b in pairs(a.time) do
+									if v.new.Text ~= "" then
+										if (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) <= 0 then
+											v.Value.Value = v.time.Text
+											v.new.Text = ""
+											for i, g in pairs(a.time) do
+												if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+													if math.min(table.unpack(dd)) <= 60 then
+														v.time.Text = g
+													else
+														v.time.Text = "N/A"
+													end
+												end		
+											end
+										elseif (v.new.Text:split(":")[1]*60 + v.new.Text:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) >= 0 then
+										else
+											if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									else
+										if (b:split(":")[1]*60 + b:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == math.min(table.unpack(dd)) then
+											if b == v.Value.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if g == v.Value1.Value then
+																for i, h in pairs(a.time) do
+																	if (h:split(":")[1]*60 + h:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 2] then
+																		if math.min(table.unpack(dd)) <= 60 then
+																			v.time.Text = h
+																		else
+																			v.time.Text = "N/A"
+																		end
+																	end
+																end
+															else
+																if math.min(table.unpack(dd)) <= 60 then
+																	v.time.Text = g
+																else
+																	v.time.Text = "N/A"
+																end
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											elseif b == v.Value1.Value then
+												if math.min(table.unpack(dd)) <= 60 then
+													for i, g in pairs(a.time) do
+														if (g:split(":")[1]*60 + g:split(":")[2] - game.Lighting:GetMinutesAfterMidnight()) == dd[table.find(dd, math.min(table.unpack(dd))) + 1] then
+															if math.min(table.unpack(dd)) <= 60 then
+																v.time.Text = g
+															else
+																v.time.Text = "N/A"
+															end
+														end
+													end
+												else
+													v.time.Text = "N/A"
+												end
+											else
+												if math.min(table.unpack(dd)) <= 60 then
+													v.time.Text = b
+												else
+													v.time.Text = "N/A"
+												end
+											end
+										end
+									end
+								end
+							else
+								v.time.Text = "N/A"
+								v.new.Text = ""
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	script.Parent.Parent.A.Value = false
+end
+
+script.Parent.Value.Changed:Connect(function()
+	a()
+end)
+
+script.Parent.Parent.Value.Changed:Connect(function()
+	a()
+end)
+
+while wait(10) do
+	a()
+end
